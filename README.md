@@ -1,3 +1,17 @@
+
+Esta semilla implementa  las siguientes librerias: 
+react 18
+redux 4 ,
+redux toolkit 1.6
+react-redux 8
+react-router v6
+sass 1
+typescript 4
+formik 2
+yup 0.32
+i18n 21
+redux saga 1
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
