@@ -5,14 +5,22 @@ import {
 } from "../../reducers/login";
 import { AppDispatch, RootState } from "../../store";
 import { Login } from "./Login";
-import { LoginContainerTypes } from "./LoginTypes";
+import { LoginContainerTypes, LoginSchema } from "./LoginTypes";
+import * as Yup from 'yup'
+import { VALIDATION_REGEX } from "../../constants/Regex";
+
 
 const LoginContainer = (props: LoginContainerTypes): JSX.Element => {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+    
+  const validationSchema:Yup.SchemaOf<LoginSchema> = Yup.object({
+    email:Yup.string().required().matches(VALIDATION_REGEX.regEmail,"Email Invalido"),
+    password:Yup.string().required("Esta campo es requerido")
+  })
 
-  return <Login {...props} />;
+  return <Login {...props} validationSchema={validationSchema}/>;
 };
 
 const mapStateToProps = (state: RootState) => ({
@@ -20,8 +28,8 @@ const mapStateToProps = (state: RootState) => ({
   isFetching: loginSelector(state).fetching,
 });
 const mapDispatchToProps = (dispatch: AppDispatch) => ({
-  postLogin: () => {
-    dispatch(loginActions.postLoginRequest());
+  postLogin: (params:any) => {
+    dispatch(loginActions.postLoginRequest(params));
   },
 });
 

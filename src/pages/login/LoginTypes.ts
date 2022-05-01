@@ -3,11 +3,15 @@
 export type LoginTypes = {
   login: any;
   isFetching: boolean;
-  postLogin: ()=>void;
+  validationSchema:any;
+  postLogin: (params:any)=>void;
 };
-
+export type LoginSchema ={
+  password:string,
+  email:string
+}
 export type LoginContainerTypes = {
   login: any;
   isFetching: boolean;
-  postLogin: ()=>void;
+  postLogin: (params:any)=>void;
 };

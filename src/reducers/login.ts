@@ -24,7 +24,10 @@ export const loginSlice = createSlice({
   name: SLICE_NAME,
   initialState,
   reducers: {
-    postLoginRequest: () => {},
+    postLoginRequest: (
+      state:LoginState,
+      action:PayloadAction<any> 
+    ) => {},
     postLoginSuccess: (
       state: LoginState,
       action: PayloadAction<any>

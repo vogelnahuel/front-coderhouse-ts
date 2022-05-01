@@ -14,13 +14,13 @@ import {
   
   export default sagas;
   
-  function* postLogin(): Generator<
+  function* postLogin({payload}:any): Generator<
     CallEffect<AxiosResponse<any>> | PutEffect<{ type: string;}>,
     void,
     any
   > {
 
-    const response = yield call(loginServices.postLogin);
+    const response = yield call(loginServices.postLogin,payload);
     if (response.status !== 200) {
       yield put(actions.postLoginError());
     } else {
