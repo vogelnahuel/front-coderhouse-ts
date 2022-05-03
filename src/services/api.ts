@@ -23,34 +23,34 @@ api.interceptors.request.use((request) => {
   return request;
 });
 
-// api.interceptors.response.use(
-//   (response) => {
-//     if (response.status === 204) {
-//       return response;
-//     }
+api.interceptors.response.use(
+  (response) => {
+    if (response.status === 204) {
+      return response;
+    }
 
-//     // cubre el caso de un download de un archivo
-//     if (response.status === 200 && response.request.responseType === "blob") {
-//       return response;
-//     }
-//     return response;
-//   },
-//   (error) => {
-//     if (!error.status && !error.response) {
-//       window.location.reload();
-//     }
-//     if (error.response) {
-//       if (error.response.status !== 401) {
-//         return error.response;
-//       }
-//     }
-//     // se agrega el atributo para saber que es un error de saga
-//     // eslint-disable-next-line
-//     error.httpError = true;
+    // cubre el caso de un download de un archivo
+    if (response.status === 200 && response.request.responseType === "blob") {
+      return response;
+    }
+    return response;
+  },
+  (error) => {
+    if (!error.status && !error.response) {
+      window.location.reload();
+    }
+    if (error.response) {
+      if (error.response.status !== 401) {
+        return error.response;
+      }
+    }
+    // se agrega el atributo para saber que es un error de saga
+    // eslint-disable-next-line
+    error.httpError = true;
 
-//     throw error;
-//   }
-// );
+    throw error;
+  }
+);
 
 export type ApiResponse<T> = {
   status: number;

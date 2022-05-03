@@ -36,6 +36,32 @@ export const loginSlice = createSlice({
       state.login = payload;
     },
     postLoginError: () => {},
+    //////////////////////////
+    postCreateUserRequest: (
+      state:LoginState,
+      action:PayloadAction<any> 
+    ) => {},
+    postCreateUserSuccess: (
+      state: LoginState,
+      action: PayloadAction<any>
+    ) => {
+      const { payload } = action;
+      state.login = payload;
+    },
+    postCreateUserError: () => {},
+  //////////////////////////
+    postUserBuyRequest: (
+      state:LoginState,
+      action:PayloadAction<any> 
+    ) => {},
+    postUserBuySuccess: (
+      state: LoginState,
+      action: PayloadAction<any>
+    ) => {
+      const { payload } = action;
+      state.login = payload;
+    },
+    postUserBuyError: () => {},
   },
   extraReducers: (builder) =>
     builder
