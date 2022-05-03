@@ -1,0 +1,47 @@
+
+
+  .input-errors-container {
+    margin-top: -15px;
+  }
+  
+  .errors {
+    font-family: "Mulish", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 18px;
+    position: relative;
+    color: #ff1515;
+    top: -5px;
+    min-height: 30px;
+    z-index: 2;
+  }
+
+  .Admin-input {
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 27px;
+    letter-spacing: 0.005em;
+    color: #101820;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid #828282;
+    margin-bottom: 25px;
+    width: 100%;
+    cursor: text;
+  }
+
+  .label-Admin {
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: #4d4d4d;
+    margin-bottom: 0;
+  }

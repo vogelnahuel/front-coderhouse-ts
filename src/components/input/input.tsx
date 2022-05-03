@@ -1,6 +1,6 @@
 
 import { useField } from 'formik';
-
+import './input.scss'
 
 export const Input= (props:any) => {
    
@@ -12,13 +12,13 @@ export const Input= (props:any) => {
 
     return (
         <div className='container-input'>
-            <label htmlFor={field.name}>
+            <label className='label-Admin' htmlFor={field.name}>
                     {label}
             </label>
             <input
                 {...field}
                 {...props}
-               
+               className="Admin-input"
             />
             {
                 meta.error && meta.touched &&

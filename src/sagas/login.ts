@@ -24,8 +24,7 @@ import {
     if (response.status !== 200) {
       yield put(actions.postLoginError());
     } else {
-      const { result } = response.data;
       payload.navigate("/dashboard")
-      yield put(actions.postLoginSuccess(result));
+      yield put(actions.postLoginSuccess(response.data.data));
     }
   }
