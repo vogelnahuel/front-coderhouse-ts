@@ -1,8 +1,8 @@
 
 import { connect } from "react-redux";
 import {
-    cartSelector
-} from "../../reducers/cart";
+    productSelector
+} from "../../reducers/product";
 import { AppDispatch, RootState } from "../../store";
 import { Product } from "./product";
 import { ContainerProductTypes } from "./productTypes";
@@ -12,7 +12,7 @@ const ProductContainer = (props: ContainerProductTypes): JSX.Element => {
 };
 
 const mapStateToProps = (state: RootState) => ({
-  isFetching: cartSelector(state).fetching,
+  isFetching: productSelector(state).fetching,
 });
 
 const mapDispatchToProps = (dispatch: AppDispatch) => ({
