@@ -2,15 +2,17 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   actions as loginActions, loginSelector,
-} from "../../reducers/login";
-import { AppDispatch, RootState } from "../../store";
+} from "../../../reducers/login";
+import { AppDispatch, RootState } from "../../../store";
 import { Login } from "./Login";
 import { LoginContainerTypes, LoginSchema } from "./LoginTypes";
 import * as Yup from 'yup'
-import { VALIDATION_REGEX } from "../../constants/Regex";
+import { VALIDATION_REGEX } from "../../../constants/Regex";
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 
 
 const LoginContainer = (props: LoginContainerTypes): JSX.Element => {
+  const navigate = useNavigate();
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -20,7 +22,7 @@ const LoginContainer = (props: LoginContainerTypes): JSX.Element => {
     password:Yup.string().required("Esta campo es requerido")
   })
 
-  return <Login {...props} validationSchema={validationSchema}/>;
+  return <Login {...props} validationSchema={validationSchema} navigate={navigate}/>;
 };
 
 const mapStateToProps = (state: RootState) => ({
@@ -28,8 +30,8 @@ const mapStateToProps = (state: RootState) => ({
   isFetching: loginSelector(state).fetching,
 });
 const mapDispatchToProps = (dispatch: AppDispatch) => ({
-  postLogin: (params:any) => {
-    dispatch(loginActions.postLoginRequest(params));
+  postLogin: (params:any,navigate: NavigateFunction) => {
+    dispatch(loginActions.postLoginRequest({params ,navigate}));
   },
 });
 

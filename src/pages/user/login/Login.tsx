@@ -1,13 +1,14 @@
-import { Header } from "../../components/header";
+import { Header } from "../../../components/header/header";
 import { LoginTypes } from "./LoginTypes";
 import { Form, Formik } from "formik";
 
-import { Input } from "../../components/input";
+import { Input } from "../../../components/input/input";
 export const Login: React.FC<LoginTypes> = ({
   login,
   isFetching,
   postLogin,
   validationSchema,
+  navigate
 }): JSX.Element => {
   return (
     <div>
@@ -19,7 +20,7 @@ export const Login: React.FC<LoginTypes> = ({
         }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          postLogin(values);
+          postLogin(values,navigate);
         }}
       >
         {(formik) => (

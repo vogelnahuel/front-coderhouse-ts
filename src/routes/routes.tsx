@@ -1,6 +1,7 @@
 import { useLayoutEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import LoginContainer from "../pages/login/LoginContainer";
+import DashboardContainer from "../pages/dashboard/DashboardContainer";
+import LoginContainer from "../pages/user/login/LoginContainer";
 
 const Wrapper = ({ children }: any) => {
   const location = useLocation();
@@ -16,12 +17,15 @@ const Router = (): JSX.Element => {
       <Wrapper>
         <Routes>
           <Route index  element={<LoginContainer/>} />
-          <Route path="dashboard" element={<h1>HolaMUNDO DASHBOARD</h1>} />
-          <Route path="product" element={<h1>HolaMUNDO</h1>} />
-          <Route path="message" element={<h1>HolaMUNDO</h1>} />
-          <Route path="cart" element={<h1>HolaMUNDO</h1>} />
-          <Route path="restore" element={<h1>HolaMUNDO</h1>} />
           <Route path="createUser" element={<h1>HolaMUNDO</h1>} />
+          <Route path="dashboard" element={<DashboardContainer/>} />
+          <Route path="product" element={<h1>HolaMUNDO</h1>} />
+          <Route path="productCreate" element={<h1>HolaMUNDO</h1>} />
+          <Route path="product/:id" element={<h1>HolaMUNDO</h1>} />
+          <Route path="cart" element={<h1>HolaMUNDO</h1>} />
+          <Route path="cartCreate" element={<h1>HolaMUNDO</h1>} />
+          <Route path="cart/:id" element={<h1>HolaMUNDO</h1>} />
+          <Route path="message" element={<h1>HolaMUNDO</h1>} />
         </Routes>
       </Wrapper>
     </BrowserRouter>

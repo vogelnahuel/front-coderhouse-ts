@@ -1,10 +1,12 @@
+import { NavigateFunction } from "react-router-dom";
 
 
 export type LoginTypes = {
   login: any;
   isFetching: boolean;
   validationSchema:any;
-  postLogin: (params:any)=>void;
+  navigate: NavigateFunction;
+  postLogin: (params:any,navigate: NavigateFunction)=>void;
 };
 export type LoginSchema ={
   password:string,
@@ -13,5 +15,5 @@ export type LoginSchema ={
 export type LoginContainerTypes = {
   login: any;
   isFetching: boolean;
-  postLogin: (params:any)=>void;
+  postLogin: (params:any,navigate: NavigateFunction)=>void;
 };

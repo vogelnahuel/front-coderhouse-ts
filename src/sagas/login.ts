@@ -19,12 +19,13 @@ import {
     void,
     any
   > {
-
-    const response = yield call(loginServices.postLogin,payload);
+ 
+    const response = yield call(loginServices.postLogin,payload.params);
     if (response.status !== 200) {
       yield put(actions.postLoginError());
     } else {
       const { result } = response.data;
+      payload.navigate("/dashboard")
       yield put(actions.postLoginSuccess(result));
     }
   }
