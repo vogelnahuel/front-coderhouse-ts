@@ -1,6 +1,6 @@
 import { LoginTypes } from "./LoginTypes";
 import { Form, Formik } from "formik";
-
+import { ReactComponent as Edit } from "../../../assets/edit.svg";
 import { Input } from "../../../components/input/input";
 import "./login.scss";
 import { Link } from "react-router-dom";
@@ -47,7 +47,9 @@ export const Login: React.FC<LoginTypes> = ({
       <div className="container-login-a">
         <Link className="login-a" to={"/createUser"}>
            Crear Usuario
+           <Edit/>
         </Link>
+
       </div>
     </div>
   );
