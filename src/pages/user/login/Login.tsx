@@ -1,4 +1,4 @@
-import { Header } from "../../../components/header/header";
+
 import { LoginTypes } from "./LoginTypes";
 import { Form, Formik } from "formik";
 
@@ -12,7 +12,7 @@ export const Login: React.FC<LoginTypes> = ({
 }): JSX.Element => {
   return (
     <div>
-      <Header />
+
       <Formik
         initialValues={{
           email: "",

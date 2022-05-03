@@ -36,7 +36,7 @@ export const cartSlice = createSlice({
       }),
 });
 
-export const dashboardSelector = (state: RootState) => state.login;
+export const cartSelector = (state: RootState) => state.login;
 
 export const actions = cartSlice.actions;
 

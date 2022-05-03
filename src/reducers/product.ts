@@ -36,7 +36,7 @@ export const productSlice = createSlice({
       }),
 });
 
-export const dashboardSelector = (state: RootState) => state.login;
+export const productSelector = (state: RootState) => state.login;
 
 export const actions = productSlice.actions;
 
