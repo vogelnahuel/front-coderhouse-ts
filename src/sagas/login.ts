@@ -10,6 +10,7 @@ import { actions } from "../reducers/login";
 import * as loginServices from "../services/login";
 import { AxiosResponse } from "axios";
 import { actions as notificationActions } from "../reducers/notification";
+import { saveValue } from "../utils/localStorage";
 
 const sagas: ForkEffect<never>[] = [
   takeLatest(actions.postLoginRequest.type, postLogin),
@@ -29,6 +30,7 @@ function* postLogin({
   if (response.status !== 200) {
     yield put(actions.postLoginError());
   } else {
+    saveValue("token", response.data.data.token);
     payload.navigate("/dashboard");
     yield put(actions.postLoginSuccess(response.data.data));
   }

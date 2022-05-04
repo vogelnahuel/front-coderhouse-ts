@@ -1,10 +1,12 @@
 import {all, call, spawn} from "redux-saga/effects";
 import login from "./login";
+import product from "./product";
 
 
 
 const sagas = [
-      ...login
+      ...login,
+      ...product
 ];
 //revisar el any del err
 

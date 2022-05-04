@@ -11,13 +11,13 @@ const api = axios.create({
 
 export const setAuthToken = (token: string) => {
   const setToken:any = api.defaults.headers;
-  setToken.Authorization = `${token}`;
+  setToken.token = `${token}`;
 };
 
 api.interceptors.request.use((request) => {
-  if (request.headers && !request.headers.Authorization) {
+  if (request.headers && !request.headers.token) {
     let token = getValue("token");
-    request.headers.Authorization = `${token}`;
+    request.headers.token = `${token}`;
     setAuthToken(token);
   }
   return request;

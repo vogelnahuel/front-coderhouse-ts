@@ -3,4 +3,5 @@ export type ProductTypes  = {
 }
 export type ContainerProductTypes  = {
     isFetching: boolean;
+    getAllProducts:()=>void;
 }
