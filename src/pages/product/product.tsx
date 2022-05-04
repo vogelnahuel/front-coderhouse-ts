@@ -4,7 +4,8 @@ import { ProductTypes } from "./productTypes";
 
 
 export const Product: React.FC<ProductTypes> = ({
-  isFetching
+  isFetching,
+  products
 }): JSX.Element => {
   return (
     <>
@@ -18,6 +19,30 @@ export const Product: React.FC<ProductTypes> = ({
           <h3 className="subtitle_Dashboard_Admin">
             visualiza lo mas importante
           </h3>
+          <table>
+            <thead>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Descripcion</th>
+            </thead>
+            <tbody>
+              {
+                products &&  products.length > 0 ? products.forEach((element:any) => 
+                    <tr>
+                      <td>{element._id}</td>
+                      <td>{element.name}</td>
+                      <td>{element.price}</td>
+                      <td>{element.stock}</td>
+                      <td>{element.description}</td>
+                    </tr>
+              
+                ) : null
+              }
+            </tbody>
+          </table>
+          
       </div>
       {isFetching === true ? <div className="modalLoading"></div> : <></>}
     </div>
