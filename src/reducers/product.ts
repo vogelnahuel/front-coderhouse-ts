@@ -7,7 +7,7 @@ import { ProductState } from "./types/product";
 export const initialState: ProductState = {
   fetching: false,
   product:[] ,
-  filters:{}
+  productSelected:{}
 };
 
 const SLICE_NAME = "product";
@@ -47,7 +47,7 @@ export const productSlice = createSlice({
       action: PayloadAction<any>
     ) => {
       const { payload } = action;
-      state.product = payload;
+      state.productSelected = payload;
     },
     getByIdProductError: () => {},
     /////////////////////////

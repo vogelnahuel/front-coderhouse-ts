@@ -1,0 +1,26 @@
+.products-table{
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #000;
+    thead{
+        background-color: rgba(0, 134, 255, 0.65)
+    }
+    tr{ 
+  
+        th{
+            height:80px;
+            border-bottom: 1px solid #000;
+        }
+        td{
+            height: 80px;
+            border-bottom: 1px solid #000;
+        }
+    }
+}
+.products-table th, .products-table td{ /* Added padding for better layout after collapsing */
+    padding: 4px 8px;
+}
+.products-table tbody tr:hover{
+    background-color: #ccc;
+    cursor: pointer;
+}

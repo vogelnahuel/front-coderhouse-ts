@@ -1,12 +1,14 @@
 import { Header } from "../../components/header/header";
 import { Nav } from "../../components/nav/nav";
 import { ProductTypes } from "./productTypes";
-
+import './product.scss'
 
 export const Product: React.FC<ProductTypes> = ({
   isFetching,
-  products
+  products,
+  navigateProductId
 }): JSX.Element => {
+
   return (
     <>
       <Header/>
@@ -14,30 +16,31 @@ export const Product: React.FC<ProductTypes> = ({
       <Nav />
       <div className="pending-container display-container">
           <h2 className="title_Dashboard_Admin">
-            Dashboard
+            Listado de productos
           </h2>
           <h3 className="subtitle_Dashboard_Admin">
-            visualiza lo mas importante
+            Seleccione uno o cree uno
           </h3>
-          <table>
+          <table className="products-table">
             <thead>
-              <th>Id</th>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Stock</th>
-              <th>Descripcion</th>
+              <tr>
+                <th align="left">Id</th>
+                <th align="left">Nombre</th>
+                <th align="left">Precio</th>
+                <th align="left">Stock</th>
+                <th align="left">Descripcion</th>
+              </tr>
             </thead>
             <tbody>
               {
-                products &&  products.length > 0 ? products.forEach((element:any) => 
-                    <tr>
+                products && products.length>0 ? products.map((element:any) => 
+                    <tr key={element._id} id={element._id} onClick={()=>navigateProductId(element._id)}>
                       <td>{element._id}</td>
                       <td>{element.name}</td>
                       <td>{element.price}</td>
                       <td>{element.stock}</td>
                       <td>{element.description}</td>
                     </tr>
-              
                 ) : null
               }
             </tbody>
