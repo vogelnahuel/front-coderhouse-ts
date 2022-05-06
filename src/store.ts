@@ -7,6 +7,7 @@ import rootReducer from "./reducers/index";
 
 const sagaMiddleware = createSagaMiddleware();
 
+
 // Crea el store de redux y configura automáticamente la extensión Redux DevTools
 export const store = configureStore({
   reducer: rootReducer(),

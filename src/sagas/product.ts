@@ -17,6 +17,7 @@ import {
     takeLatest(actions.getByIdProductRequest.type, getById),
     takeLatest(actions.updateProductRequest.type, updateProduct),
     takeLatest(actions.deleteProductRequest.type, deleteProduct),
+    takeLatest(actions.createProductRequest.type, createProduct),
   ];
   
   export default sagas;
@@ -66,8 +67,8 @@ any
 > {
   const values = {
     name:payload.params.name || '',
-    price:payload.params.price || 0,
-    stock:payload.params.stock || 0,
+    price:parseInt(payload.params.price) || 0,
+    stock:parseInt(payload.params.stock) || 0,
     photo:payload.params.photo || '',
     code:payload.params.code || '',
     description:payload.params.description || '',
@@ -110,6 +111,40 @@ if (response.status !== 200) {
 } else {
   payload.navigate("/product");
   yield put(actions.deleteProductSuccess(response.data.data));
+}
+}
+
+
+
+function* createProduct({
+  payload
+}:any): Generator<
+CallEffect<AxiosResponse<any>> | PutEffect<{ type: string }>,
+void,
+any
+> {
+  const values = {
+    name:payload.params.name || '',
+    price: parseInt(payload.params.price) || 0,
+    stock:parseInt(payload.params.stock) || 0,
+    photo:payload.params.photo || '',
+    code:payload.params.code || '',
+    description:payload.params.description || '',
+    timestamp:payload.params.timestamp || '',
+  }
+const response = yield call(productServices.createProduct,values);
+if (response.status !== 200) {
+  yield put(
+    notificationActions.showNotification({
+      level: "error",
+      title:"No se pudo crear",
+      body: "Intente nuevamente",
+    })
+  );
+  yield put(actions.updateProductError());
+} else {
+  payload.navigate("/product");
+  yield put(actions.updateProductSuccess(response.data.data));
 }
 }
   

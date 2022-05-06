@@ -2,6 +2,7 @@ import { Header } from "../../components/header/header";
 import { Nav } from "../../components/nav/nav";
 import { ProductTypes } from "./productTypes";
 import './product.scss'
+import { Link } from "react-router-dom";
 
 export const Product: React.FC<ProductTypes> = ({
   isFetching,
@@ -21,6 +22,9 @@ export const Product: React.FC<ProductTypes> = ({
           <h3 className="subtitle_Dashboard_Admin">
             Seleccione uno o cree uno
           </h3>
+          <Link className="create-product" to={"/productCreate"}>
+            Crear uno
+          </Link>
           <table className="products-table">
             <thead>
               <tr>
