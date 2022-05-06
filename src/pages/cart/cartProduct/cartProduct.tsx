@@ -1,9 +1,9 @@
 import { Header } from "../../../components/header/header";
 import { Nav } from "../../../components/nav/nav";
-import { CartByIdTypes } from "./cartByIdTypes";
+import { CartProductypes } from "./cartProductTypes";
 
 
-export const CartById: React.FC<CartByIdTypes> = ({
+export const CartById: React.FC<CartProductypes> = ({
   isFetching
 }): JSX.Element => {
   return (

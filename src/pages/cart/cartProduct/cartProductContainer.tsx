@@ -4,10 +4,10 @@ import {
     cartSelector
 } from "../../../reducers/cart";
 import { AppDispatch, RootState } from "../../../store";
-import { CartById } from "./cartById";
-import { ContainerCartByIdTypes } from "./cartByIdTypes";
+import { CartById } from "./cartProduct";
+import { ContainerCartProductTypes } from "./cartProductTypes";
 
-const CartByIdContainer = (props: ContainerCartByIdTypes): JSX.Element => {
+const CartByIdContainer = (props: ContainerCartProductTypes): JSX.Element => {
   return <CartById {...props} />;
 };
 

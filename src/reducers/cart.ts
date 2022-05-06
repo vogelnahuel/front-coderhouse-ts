@@ -1,11 +1,12 @@
-import { createSlice, Action } from "@reduxjs/toolkit";
+import { createSlice, Action, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { endsWithAny } from "../utils/endWithAny";
-import { DashboardState } from "./types/dashboard";
+import { cartState } from "./types/cart";
 
 
-export const initialState: DashboardState = {
-  fetching: false
+export const initialState: cartState = {
+  fetching: false,
+  cartSelected:{}
 };
 
 const SLICE_NAME = "cart";
@@ -24,19 +25,30 @@ export const cartSlice = createSlice({
   name: SLICE_NAME,
   initialState,
   reducers: {
-   
+    getcartRequest: (
+      state:cartState,
+      action:PayloadAction<any> 
+    ) => {},
+    getcartSuccess: (
+      state: cartState,
+      action: PayloadAction<any>
+    ) => {
+      const { payload } = action;
+      state.cartSelected = payload;
+    },
+    getcartError: () => {},
   },
   extraReducers: (builder) =>
     builder
-      .addMatcher(isRequestAction, (state: DashboardState) => {
+      .addMatcher(isRequestAction, (state: cartState) => {
         state.fetching = true;
       })
-      .addMatcher(isResponseAction, (state: DashboardState) => {
+      .addMatcher(isResponseAction, (state: cartState) => {
         state.fetching = false;
       }),
 });
 
-export const cartSelector = (state: RootState) => state.login;
+export const cartSelector = (state: RootState) => state.cart;
 
 export const actions = cartSlice.actions;
 
