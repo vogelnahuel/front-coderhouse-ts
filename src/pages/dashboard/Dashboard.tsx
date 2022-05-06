@@ -3,9 +3,12 @@ import { Nav } from "../../components/nav/nav";
 import { DashboardTypes } from "./dashboardTypes";
 import './dashboard.scss'
 
+
 export const Dashboard: React.FC<DashboardTypes> = ({
-  isFetching
+  isFetching,
+  user
 }): JSX.Element => {
+
   return (
     <>
       <Header/>
