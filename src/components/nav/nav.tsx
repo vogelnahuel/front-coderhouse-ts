@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom'
 import './nav.scss'
 import { AppDispatch, RootState } from '../../store';
 import { NavType } from './navTypes';
-import { store } from "../../store";
+import {useSelector} from "react-redux";
 
 export const Nav = ({user,fetchingLogin}:NavType) => {
-
+  const accountDetails:any = useSelector(state => state);
   const navigate = useNavigate()
   
   const history = useLocation();
@@ -23,9 +23,8 @@ export const Nav = ({user,fetchingLogin}:NavType) => {
   }
   const cartById = (e:any) => {
     e.preventDefault();
-    const state = store.getState()
 
-    navigate(`/cart/${state.login.login.cartUser._id}`)
+    navigate(`/cart/${accountDetails.login.login.cartUser._id}`)
   }
 
 

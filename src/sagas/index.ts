@@ -1,4 +1,5 @@
 import {all, call, spawn} from "redux-saga/effects";
+import cart from "./cart";
 import login from "./login";
 import product from "./product";
 
@@ -6,7 +7,8 @@ import product from "./product";
 
 const sagas = [
       ...login,
-      ...product
+      ...product,
+      ...cart
 ];
 //revisar el any del err
 

@@ -2,6 +2,7 @@ import { useLayoutEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 // import CartByIdContainer from "../pages/cart/cartById/cartByIdContainer";
 import CartContainer from "../pages/cart/cartContainer";
+import CartProductContainer from "../pages/cart/cartProduct/cartProductContainer";
 import CartCreateContainer from "../pages/cart/createCart/cartCreateContainer";
 import DashboardContainer from "../pages/dashboard/DashboardContainer";
 import MessageContainer from "../pages/messages/messageContainer";
@@ -32,7 +33,7 @@ const Router = (): JSX.Element => {
           <Route path="product/:id" element={<ProductByIdContainer/>} />
           <Route path="cart/:id" element={<CartContainer/>} />
           <Route path="cartCreate" element={<CartCreateContainer/>} />
-          {/* <Route path="cart/:id" element={<CartByIdContainer/>} /> */}
+          <Route path="cartProduct" element={<CartProductContainer/>} />
           <Route path="message" element={<MessageContainer/>} />
         </Routes>
       </Wrapper>

@@ -37,6 +37,58 @@ export const cartSlice = createSlice({
       state.cartSelected = payload;
     },
     getcartError: () => {},
+
+    deleteCartRequest: (
+      state:cartState,
+      action:PayloadAction<any> 
+    ) => {},
+    deleteCartSuccess: (
+      state: cartState,
+      action: PayloadAction<any>
+    ) => {
+      const { payload } = action;
+      state.cartSelected = payload;
+    },
+    deleteCartError: () => {},
+
+    createCartRequest: (
+      state:cartState,
+      action:PayloadAction<any> 
+    ) => {},
+    createCartSuccess: (
+      state: cartState,
+      action: PayloadAction<any>
+    ) => {
+      const { payload } = action;
+      state.cartSelected = payload;
+    },
+    createCartError: () => {},
+
+    addProductCartRequest: (
+      state:cartState,
+      action:PayloadAction<any> 
+    ) => {},
+    addProductCartSuccess: (
+      state: cartState,
+      action: PayloadAction<any>
+    ) => {
+      const { payload } = action;
+      state.cartSelected = payload;
+    },
+    addProductCartError: () => {},
+
+    deleteProductCartRequest: (
+      state:cartState,
+      action:PayloadAction<any> 
+    ) => {},
+    deleteProductCartSuccess: (
+      state: cartState,
+      action: PayloadAction<any>
+    ) => {
+      const { payload } = action;
+      state.cartSelected = payload;
+    },
+    deleteProductCartError: () => {},
   },
   extraReducers: (builder) =>
     builder
