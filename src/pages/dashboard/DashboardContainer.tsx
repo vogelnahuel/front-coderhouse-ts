@@ -7,7 +7,6 @@ import {
   loginSelector
 } from "../../reducers/login";
 import {
-  cartSelector,
   actions as cartActions
 } from "../../reducers/cart";
 import { AppDispatch, RootState } from "../../store";

@@ -80,7 +80,10 @@ CallEffect<AxiosResponse<any>> | PutEffect<{ type: string }>,
 void,
 any
 > {
-const response = yield call(cartServices.createCart,payload);
+  
+  console.log("ENTRE",payload)
+const response = yield call(cartServices.createCartServices,payload);
+console.log("ENTRE",payload)
 if (response.status !== 200) {
   yield put(
     notificationActions.showNotification({

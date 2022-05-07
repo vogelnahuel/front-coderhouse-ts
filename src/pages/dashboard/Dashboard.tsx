@@ -30,7 +30,7 @@ export const Dashboard: React.FC<DashboardTypes> = ({
 
               }}
               onSubmit={(values) => {
-                createCart(user.User.id);
+                createCart(user.User._id);
               }}
             >
               {(formik) => (
